@@ -168,20 +168,6 @@ onMounted(async () => {
 
 <style scoped>
 
-.outlined-button {
-    background: #141414;
-    padding: 12px 24px;
-    color: rgb(0, 154, 182);
-    text-align: center;
-    font-weight: 500;
-
-    font-size: 16px;
-    transition: .2s;
-    cursor: pointer;
-    border-radius: 6px;
-    border: 1px solid rgb(0, 154, 182);
-}
-
 .wish-button {
     background: #141414;
     padding: 16px 24px;

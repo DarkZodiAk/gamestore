@@ -8,6 +8,7 @@ import {getGames} from "@/api/game.js";
 
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import AlertDialog from "@/components/AlertDialog.vue";
 import { CircleSlash2 } from 'lucide-vue-next';
 import VLoader from "@/components/VLoader.vue";
 
@@ -17,8 +18,8 @@ const router = useRouter();
 
 let games = ref([])
 let showLoader = ref(false);
-let showModal = ref(false);
-let total = ref(0)
+let isDialogVisible = ref(false)
+let total = ref(0);
 
 const getCartGames = async () => {
     try {
@@ -51,7 +52,7 @@ const removeCart = async (id) => {
 const checkout = async () => {
     try {
         await clearCart();
-        showModal.value = true;
+        isDialogVisible.value = true;
         await getCartGames();
     } catch (e) {
         console.log(e.response);
@@ -96,7 +97,7 @@ onMounted(async () => {
                 <div class="kobweb-row kobweb-arrange-space-between kobweb-align-center-vert" style="width: 100%;">
                   <span class="silk-span-text" style="font-size: 20px; font-weight: 400; flex-grow: 1; padding: 0px 10px 0px 0px;">{{game.name}}</span><span class="silk-span-text" style="font-size: 22px; font-weight: 700;">{{game.price}}&nbsp;₽</span>
                 </div>
-                <span @click="removeCart(game.id)" class="silk-span-text" style="font-size: 18px; font-weight: 600; color: rgb(153, 153, 153);">Удалить</span>
+                <span @click.stop="removeCart(game.id)" class="silk-span-text" style="font-size: 18px; font-weight: 600; color: rgb(153, 153, 153);">Удалить</span>
               </div>
             </div>
           </div>
@@ -105,8 +106,8 @@ onMounted(async () => {
            <div class="kobweb-row kobweb-arrange-space-between kobweb-align-center-vert" style="width: 100%;">
             <span class="silk-span-text" style="font-size: 27px; font-weight: 600;">Итого</span><span class="silk-span-text" style="font-size: 27px; font-weight: 600;">{{total}}&nbsp;₽</span>
            </div>
-            <button class="primary-button" style="width: 100%" type="button">
-              <span @click="checkout" class="silk-span-text" style="font-size: 16px; line-height: 1.5; width: 100%;">Оплатить</span>
+            <button class="primary-button" style="width: 100%" type="button" @click="checkout">
+              <span class="silk-span-text" style="font-size: 16px; line-height: 1.5; width: 100%;">Оплатить</span>
             </button>
           </div>
          </div>
@@ -121,6 +122,12 @@ onMounted(async () => {
        <Footer/>
       </div>
     </div>
+    <AlertDialog
+      v-if="isDialogVisible"
+      message="Спасибо за покупку!"
+      :visible="isDialogVisible"
+      @onDismiss="isDialogVisible = false"
+    />
   </div>
 </template>
 

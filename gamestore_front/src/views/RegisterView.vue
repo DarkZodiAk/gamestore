@@ -29,7 +29,8 @@ const register = async () => {
             <span class="silk-span-text" style="font-size: 34px;">Регистрация</span>
 
             <form @keydown.enter.prevent="register" @submit.prevent="register">
-              <div class="kobweb-col kobweb-arrange-spaced-by kobweb-arrange-start kobweb-align-center-horiz" style="clip-path: inset(0% round 10px); background: rgb(15, 15, 15); border: 1px solid rgb(38, 38, 38); border-radius: 10px; width: 100%; padding: 40px; --kobweb-arrange-spaced-by: 25px;">
+              <div class="kobweb-col kobweb-arrange-spaced-by kobweb-arrange-start kobweb-align-center-horiz"
+                   style="clip-path: inset(0% round 10px); background: rgb(15, 15, 15); border: 1px solid rgb(38, 38, 38); border-radius: 10px; width: 448px; padding: 40px; --kobweb-arrange-spaced-by: 25px;">
                 <div class="kobweb-col kobweb-arrange-spaced-by kobweb-arrange-start kobweb-align-start" style="width: 100%; --kobweb-arrange-spaced-by: 12px;">
                   <span class="silk-span-text">Логин</span>
                   <input type="text" placeholder="Введите логин" v-model="authStore.username">

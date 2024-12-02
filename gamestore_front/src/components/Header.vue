@@ -2,12 +2,19 @@
 
 import {useGameStore} from "@/stores/GameStore.js";
 import {onMounted} from "vue";
+import {useAuthStore} from "@/stores/AuthStore.js";
+import router from "@/router/index.js";
 const gameStore = useGameStore();
+const authStore = useAuthStore();
+
+const logout = () => {
+    authStore.logout()
+    router.push('/login')
+}
 
 onMounted(async () => {
     await gameStore.updateCountInCart()
 })
-
 </script>
 
 <template>
@@ -30,7 +37,7 @@ onMounted(async () => {
         <RouterLink to="/wishlist">
           <img class="icon" alt="Wishlist" src="@/assets/list.png"/>
         </RouterLink>
-        <img class="icon" alt="Logout" src="@/assets/logout.png" @click="logout"/>
+        <a href="/login" @click="logout"><img class="icon" alt="Logout" src="@/assets/logout.png"/></a>
       </div>
     </div>
   </div>

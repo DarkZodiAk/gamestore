@@ -3,7 +3,8 @@
 </script>
 
 <template>
-  <div class="kobweb-align-center-horiz align-center-hor" style="width: 100%; background: rgb(15, 15, 15); padding: 50px 0px;">
+  <div class="kobweb-align-center-horiz align-center-hor"
+       style="width: 100%; background: rgb(15, 15, 15); padding: 50px 0px; margin-top: 30px;">
     <div class="kobweb-row kobweb-arrange-space-between width-lim kobweb-align-center-vert">
       <span class="silk-span-text footer-text">@2024 GameStore, все права защищены.</span>
       <div class="kobweb-row kobweb-arrange-spaced-by kobweb-arrange-start kobweb-align-top" style="--kobweb-arrange-spaced-by: 40px;">

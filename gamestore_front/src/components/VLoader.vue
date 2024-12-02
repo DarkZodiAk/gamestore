@@ -3,7 +3,7 @@ import {LoaderPinwheel} from "lucide-vue-next";
 </script>
 
 <template>
-  <LoaderPinwheel class="loader" color="#FFB308"
+  <LoaderPinwheel class="loader" color="#009AB6"
                     :size="27"
     ></LoaderPinwheel>
 </template>

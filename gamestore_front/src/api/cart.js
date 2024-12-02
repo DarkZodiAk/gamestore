@@ -19,5 +19,5 @@ export const deleteGameFromCart = async (game_id) => {
 }
 
 export const clearCart = async () => {
-    return await $authHost.delete(`tasks/basket/clear`)
+    return await $authHost.delete(`basket/clear`)
 }
